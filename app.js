@@ -35,8 +35,16 @@ function displayUinamesData(data){
 	console.log(data);
 }
 
+function startGenrePage(startElement){
+	startElement.on('click', function(event){
+		window.location = '/genrePage.html';
+	});
+}
+
 
 $(function(){
-	getDataFromWordnik('verb', displayWordnikData);
-	getDataFromUinames('male', 'United States', displayUinamesData);
+	// var startElement = $('.js-start-button');
+
+	// getDataFromWordnik('verb', displayWordnikData);
+	// getDataFromUinames('male', 'United States', displayUinamesData);
 })

@@ -1,0 +1,18 @@
+header{
+	border: 1px solid white;
+	background-color: black;
+	color: white;
+	padding-left: 10px;
+}
+
+.start-page-main, .pick-genre-div{
+	text-align: center;
+}
+
+.genre-list > li{
+	list-style: none;	
+	margin-bottom: 20px;
+	border: 1px solid black;
+	padding: 20px;
+}
+
