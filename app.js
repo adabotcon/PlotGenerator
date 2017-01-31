@@ -1,6 +1,35 @@
 var Wordnik_BASE_URL = 'http://api.wordnik.com:80/v4/words.json/randomWord';
 var Uinames_BASE_URL = 'http://uinames.com/api/';
 
+function getDropdownMenu(){
+	var dropdownMenuItems = '<div>'
+}
+
+function getPlot(firstCharacterName, firstCharacterAdj1, firstCharacterAdj2, firstCharacterGender, secondCharacterName, secondCharacterAdj1, secondCharacterAdj2, secondCharacterGender, place, verb1, adj1, verb2){
+	var genderNounChar1 = "";
+	var genderNounChar2 = "";
+
+	if(firstCharacterGender==="female"){
+		genderNounChar1 = "she";
+	} else {
+		genderNounChar1 = "he";
+	}
+
+	if(secondCharacterGender==="female"){
+		genderNounChar2 = "she";
+	} else {
+		genderNounChar2 = "he";
+	}
+
+	var plot = "This an example of a plot. " + firstCharacterName + " is a " + firstCharacterAdj1 + ", " + firstCharacterAdj2 + 
+	" cop who is sick of being stuck on the same beat." + "But " + genderNounChar1 + " should have been careful about what " + 
+	genderNounChar1 + " wished for because " + genderNounChar1 + "'s just met" + secondCharacterName + ". And " + 
+	genderNounChar2 + " is a " + secondCharacterAdj1 + ", " + secondCharacterAdj2 + " secret agent who is caught up in a" + 
+	"criminal underground in " + place. +
+	"Soon the two will have to " + verb1 + " in order to save " + place + ". If that wasn't bad enough some " + adj1 + " figure head is " + 
+	verb2 + "the strings."
+}
+
 function getDataFromWordnik(wordType, callback){
 	var query = {
 		hasDictionaryDef: false,
