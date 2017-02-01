@@ -9,6 +9,10 @@ header{
 	text-align: center;
 }
 
+.hidden{
+	display: none;
+}
+
 .genre-list > li{
 	list-style: none;	
 	margin-bottom: 20px;

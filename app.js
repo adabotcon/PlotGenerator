@@ -21,13 +21,7 @@ function getPlot(firstCharacterName, firstCharacterAdj1, firstCharacterAdj2, fir
 		genderNounChar2 = "he";
 	}
 
-	var plot = "This an example of a plot. " + firstCharacterName + " is a " + firstCharacterAdj1 + ", " + firstCharacterAdj2 + 
-	" cop who is sick of being stuck on the same beat." + "But " + genderNounChar1 + " should have been careful about what " + 
-	genderNounChar1 + " wished for because " + genderNounChar1 + "'s just met" + secondCharacterName + ". And " + 
-	genderNounChar2 + " is a " + secondCharacterAdj1 + ", " + secondCharacterAdj2 + " secret agent who is caught up in a" + 
-	"criminal underground in " + place. +
-	"Soon the two will have to " + verb1 + " in order to save " + place + ". If that wasn't bad enough some " + adj1 + " figure head is " + 
-	verb2 + "the strings."
+	var plot = `This an example of a plot. ${firstCharacterName} is a ${firstCharacterAdj1}, ${firstCharacterAdj2} cop who is sick of being stuck on the same beat. ${genderNounChar1} should have been careful about what ${genderNounChar1} wished for because ${genderNounChar1}'s just met ${secondCharacterName}. And ${genderNounChar2} is a ${secondCharacterAdj1}, ${secondCharacterAdj2} secret agent who is caught up in a criminal underground in ${place}. Soon the two will have to ${verb1} in order to save ${place} If that wasn't bad enough some ${adj1} figure head is ${verb2} the strings.`;
 }
 
 function getDataFromWordnik(wordType, callback){
@@ -46,7 +40,7 @@ function getDataFromWordnik(wordType, callback){
 	$.getJSON(Wordnik_BASE_URL, query, callback);
 }
 
-function getDataFromUinames(gender, region, callback){
+function getDataFromUinames(gender, region, callback) {
 	var query = {
 		region: region,
 		gender: gender,
@@ -64,16 +58,79 @@ function displayUinamesData(data){
 	console.log(data);
 }
 
-function startGenrePage(startElement){
-	startElement.on('click', function(event){
-		window.location = '/genrePage.html';
+function regionListener(arrayRegions){
+	console.log("Listener called");
+	$('.js-region-trigger').on('click', function(event) {
+		console.log("Trigger called");
+		event.preventDefault();
+		buildRegionsList(arrayRegions);
+		$('.regions').fadeToggle();
 	});
+}
+
+function buildRegionsList(arrayRegions){
+	var regionsHTML = arrayRegions.map(region => `<li> ${region} </li>`);
+
+	$('.regions ul').html(regionsHTML);
 }
 
 
 $(function(){
+	$('.regions').hide();
+	regionListener(arrayRegions);
 	// var startElement = $('.js-start-button');
 
 	// getDataFromWordnik('verb', displayWordnikData);
 	// getDataFromUinames('male', 'United States', displayUinamesData);
 })
+
+
+var arrayRegions = ["Albania",
+"Argentina",
+"Armenia",
+"Australia",
+"Austria",
+"Azerbaijan",
+"Bangladesh",
+"Belgium",
+"Bosnia and Herzegovina",
+"Brazil",
+"Canada",
+"China",
+"Colombia",
+"Denmark",
+"Egypt",
+"England",
+"Estonia",
+"Finland",
+"France",
+"Georgia",
+"Germany",
+"Greece",
+"Hungary",
+"India",
+"Iran",
+"Israel",
+"Italy",
+"Japan",
+"Korea",
+"Mexico",
+"Morocco",
+"Netherlands",
+"New Zealand",
+"Nigeria",
+"Norway",
+"Pakistan",
+"Poland",
+"Portugal",
+"Romania",
+"Russia",
+"Slovakia",
+"Slovenia",
+"Spain",
+"Sweden",
+"Switzerland",
+"Turkey",
+"Ukraine",
+"United States",
+"Vietnam"];
