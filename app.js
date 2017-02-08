@@ -82,6 +82,10 @@ function regionListener(arrayRegions){
 		event.preventDefault();
 		buildRegionsList(arrayRegions);
 		$('.regions').fadeToggle();
+		$('.regions li').on('click', function(event) {
+			$('.js-region-trigger').text($(this).text());
+			$('.regions').fadeToggle();
+		})
 	});
 }
 
@@ -94,7 +98,7 @@ function buildRegionsList(arrayRegions){
 function getRandomName(){
 	$('.js-button-name').on('click', function(event){
 		event.preventDefault();
-		var region = 
+		var region = $('.js-region-trigger').text();
 	})
 }
 
