@@ -1,10 +1,6 @@
 var Wordnik_BASE_URL = 'http://api.wordnik.com:80/v4/words.json/randomWord';
 var Uinames_BASE_URL = 'http://uinames.com/api/';
 
-function getDropdownMenu(){
-	var dropdownMenuItems = '<div>'
-}
-
 function getPlot(firstCharacterName, firstCharacterAdj1, firstCharacterAdj2, firstCharacterGender, secondCharacterName, secondCharacterAdj1, secondCharacterAdj2, secondCharacterGender, place, verb1, adj1, verb2, genre){
 	var genderNounChar1 = "";
 	var genderNounChar2 = "";
@@ -60,7 +56,6 @@ function getDataFromWordnik(wordType, callback){
 }
 
 function getDataFromUinames(gender, region, callback) {
-	debugger;
 	var query = {
 		region: region,
 		gender: gender,
@@ -70,12 +65,15 @@ function getDataFromUinames(gender, region, callback) {
 	$.getJSON(Uinames_BASE_URL, query, callback);
 }
 
-function displayWordnikData(data){
-	console.log(data);
-}
+// function displayWordnikData(data){
+// 	console.log(data);
+// 	var word = data.word;
+// 	closestInput.text(word);
+// }
 
 function displayUinamesData(data){
-	console.log(data);
+	var resultName = data.name;
+	var resultLastName = data.surname;
 }
 
 function regionListener(arrayRegions){
@@ -109,11 +107,23 @@ function getRandomName(){
 	})
 }
 
+// function getRandomAdj(){
+// 	debugger;
+// 	$('.js-adj-button').on('click', function(event) {
+// 		debugger;
+// 		event.preventDefault();
+// 		var closestInput = $(event.currentTarget.closest('input'));
+// 		getDataFromWordnik("adjective", displayWordnikData(closestInput));
+// 	})
+// }
+
 
 $(function(){
 	$('.regions').hide();
 	regionListener(arrayRegions);
 	getRandomName();
+	getRandomAdj();
+
 	// var startElement = $('.js-start-button');
 
 	// getDataFromWordnik('verb', displayWordnikData);
