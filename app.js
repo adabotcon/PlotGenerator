@@ -60,6 +60,7 @@ function getDataFromWordnik(wordType, callback){
 }
 
 function getDataFromUinames(gender, region, callback) {
+	debugger;
 	var query = {
 		region: region,
 		gender: gender,
@@ -99,6 +100,12 @@ function getRandomName(){
 	$('.js-button-name').on('click', function(event){
 		event.preventDefault();
 		var region = $('.js-region-trigger').text();
+		if(region === "Choose Your Region"){
+			region = "United States";
+		}
+
+		var gender = $('input[name=gender]:checked').val();
+		getDataFromUinames(gender, region, displayUinamesData);
 	})
 }
 
@@ -106,6 +113,7 @@ function getRandomName(){
 $(function(){
 	$('.regions').hide();
 	regionListener(arrayRegions);
+	getRandomName();
 	// var startElement = $('.js-start-button');
 
 	// getDataFromWordnik('verb', displayWordnikData);

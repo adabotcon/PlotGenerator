@@ -12,7 +12,7 @@
 		<h1>Plot Generator</h1>
 	</header>
 	<main>
-		<form class="js-name-form-basic">
+		<form class="js-name-form-char1-basic">
 			<label for="first-name">First Character Name: </label>
 			<input type="text" name="first-name">
 			<div class="dropdown">
@@ -30,8 +30,26 @@
 			<input type="radio" name="gender" value="female">Female
 			<button class="js-button-name">Random Name</button>
 		</form>
+		<form class="js-name-form-char2-basic">
+			<label for="second-name">Second Character Name: </label>
+			<input type="text" name="second-name">
+				<div class="dropdown">
+				<!-- <select>
+					<OPTION>USA</OPTION>
+					<OPTION>JAPAN</OPTION>
+				</select> -->
+				<p class="js-region-trigger">Choose Your Region</p>
+				<div class="hidden regions">
+					<ul>
+					</ul>
+				</div>
+			</div>
+			<input type="radio" name="gender" value="male">Male
+			<input type="radio" name="gender" value="female">Female
+			<button class="js-button-name">Random Name</button>
+		</form>
 	</main>
-		<!-- Scripts for Javascript and Jquery -->
+		<!-- Scripts for Javascript and Jquery
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script type="text/javascript" src="app.js"></script>
 </body>
