@@ -78,9 +78,7 @@ function displayUinamesData(data){
 }
 
 function regionListener(arrayRegions){
-	console.log("Listener called");
 	$('.js-region-trigger').on('click', function(event) {
-		console.log("Trigger called");
 		event.preventDefault();
 		buildRegionsList(arrayRegions);
 		$('.regions').fadeToggle();
@@ -91,6 +89,13 @@ function buildRegionsList(arrayRegions){
 	var regionsHTML = arrayRegions.map(region => `<li> ${region} </li>`);
 
 	$('.regions ul').html(regionsHTML);
+}
+
+function getRandomName(){
+	$('.js-button-name').on('click', function(event){
+		event.preventDefault();
+		var region = 
+	})
 }
 
 
@@ -155,18 +160,18 @@ var arrayRegions = ["Albania",
 "Vietnam"];
 
 var plot_array = [
-	{
-		ID: '1',
-		plot: `This an example of a plot. ${firstCharacterName} is a ${firstCharacterAdj1}, ${firstCharacterAdj2} cop who is sick of being stuck on the same beat. ${genderNounChar1} should have been careful about what ${genderNounChar1} wished for because ${genderNounChar1}'s just met ${secondCharacterName}. And ${genderNounChar2} is a ${secondCharacterAdj1}, ${secondCharacterAdj2} secret agent who is caught up in a criminal underground in ${place}. Soon the two will have to ${verb1} in order to save ${place} If that wasn't bad enough some ${adj1} figure head is ${verb2} the strings.`,
-		genre: 'mystery'
-	}
-	{
-		ID: '4',
-		plot: `${firstCharacterName} is a ${firstCharacterAdj1}, ${firstCharacterAdj2} student who works as a ${job} after school. Unfortunately ${genderNounChar1} is doing so illegally and without the school's permission. One day ${genderNounChar1} is followed by ${secondCharacterName} a ${secondCharacterAdj1}, ${secondCharacterAdj2} student who is determined to ${verb1} ${genderNounChar2Poss} classmate. ${secondCharacterName} wants to be a ${job2} when they graduate but ${genderNounChar2} is unable to due to ${genderNounChar2Poss} parents who have an ${adj1} habit. They ${verb2} which costs the family all their earnings.
-			So when ${secondCharacterName} finds out about ${firstCharacterName} ${genderNounChar2} blackmails ${genderNounChar1HH}. Now both of them are hiding secrets from the school and have to work together to keep it that way. It would be easy if only the ${adj2} feelings between the two weren't changing into something more. Will they be able to get through school without being exposed or will they end up ${verb3}?`,
-		genre: 'romance'
-	}
-	{
+	// {
+	// 	ID: '1',
+	// 	plot: `${firstCharacterName} is a ${firstCharacterAdj1}, ${firstCharacterAdj2} cop who is sick of being stuck on the same beat. ${genderNounChar1} should have been careful about what ${genderNounChar1} wished for because ${genderNounChar1}'s just met ${secondCharacterName}. And ${genderNounChar2} is a ${secondCharacterAdj1}, ${secondCharacterAdj2} secret agent who is caught up in a criminal underground in ${place}. Soon the two will have to ${verb1} in order to save ${place} If that wasn't bad enough some ${adj1} figure head is ${verb2} the strings.`,
+	// 	genre: 'mystery'
+	// }
+	// {
+	// 	ID: '4',
+	// 	plot: `${firstCharacterName} is a ${firstCharacterAdj1}, ${firstCharacterAdj2} student who works as a ${job} after school. Unfortunately ${genderNounChar1} is doing so illegally and without the school's permission. One day ${genderNounChar1} is followed by ${secondCharacterName} a ${secondCharacterAdj1}, ${secondCharacterAdj2} student who is determined to ${verb1} ${genderNounChar2Poss} classmate. ${secondCharacterName} wants to be a ${job2} when they graduate but ${genderNounChar2} is unable to due to ${genderNounChar2Poss} parents who have an ${adj1} habit. They ${verb2} which costs the family all their earnings.
+	// 		So when ${secondCharacterName} finds out about ${firstCharacterName} ${genderNounChar2} blackmails ${genderNounChar1HH}. Now both of them are hiding secrets from the school and have to work together to keep it that way. It would be easy if only the ${adj2} feelings between the two weren't changing into something more. Will they be able to get through school without being exposed or will they end up ${verb3}?`,
+	// 	genre: 'romance'
+	// }
+	// {
 
-	}
+	// }
 ]
