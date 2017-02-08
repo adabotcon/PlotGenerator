@@ -20,3 +20,8 @@ header{
 	padding: 20px;
 }
 
+.char-form, .word-form{
+	border: 1px solid lightgrey;
+	padding: 20px;
+}
+
