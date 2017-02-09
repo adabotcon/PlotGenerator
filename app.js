@@ -198,19 +198,19 @@ var plot_array = [
 		genre: 'mystery'
 	}
 	{
-		ID: '4',
+		ID: '3',
 		plotFirstParagraph: `In ${place}, ${firstCharacterName} is a ${firstCharacterAdj1}, ${firstCharacterAdj2} student who works as a ${job1} after school. Unfortunately ${genderNounChar1} is doing so illegally and without the school's permission. One day ${genderNounChar1} is followed by ${secondCharacterName} a ${secondCharacterAdj1}, ${secondCharacterAdj2} student who is determined to ${verb1} ${genderNounChar2Poss} classmate. ${secondCharacterName} wants to be a ${job2} when they graduate but ${genderNounChar2} is unable to due to ${genderNounChar2Poss} parents who have an ${adj1} habit. They ${verb2} which costs the family all their earnings.`
 		plotSecondParagraph: `So when ${secondCharacterName} finds out about ${firstCharacterName} ${genderNounChar2} blackmails ${genderNounChar1HH}. Now both of them are hiding secrets from the school and have to work together to keep it that way. It would be easy if only the ${adj2} feelings between the two weren't changing into something more. Will they be able to get through school without being exposed or will they end up ${verb3}?`,
 		genre: 'romance'
 	}
 	{
-		ID: '5',
+		ID: '4',
 		plotFirstParagraph: `${firstCharacterName} is a ${firstCharacterAdj1} and ${firstCharacterAdj2} who works at ${job1} in ${place}. ${genderNounChar1} used to be childhood friends with ${secondCharacterName} but they had a falling out after they ${verb1}. Now after years of never seeing each other they have met and ${secondCharacterName} is ${secondCharacterAdj1} and ${secondCharacterAdj2} everything that ${firstCharacterName} hates. Unfortunately ${genderNounChar1Poss} work is joining forces with ${secondCharacterName}'s workplace.`
 		plotSecondParagraph: `${secondCharacterName} has been working double shifts as a ${job} and hates it. ${genderNounChar2} is desperate to ${verb2} but can't seem to get anywhere. This ${adj1} project with ${firstCharacterName}'s work seems the best way to move forward. If only ${firstCharacterName} would put aside ${genderNounChar1Poss} ${adj2} hatred. Especially since ${secondCharacterName} still enjoys the idea of ${verb3} with ${genderNounChar1HH}. Will they every get over past hurt, or will this project fall into the river?`,
 		genre: 'romance'
 	}
 	{
-		ID: '6',
+		ID: '5',
 		plotFirstParagraph: `${firstCharacterName} is a paranormal investigator who works as a ${job1} on the side. ${genderNounChar1} has a personality that could be described as ${firstCharacterAdj1} and ${firstCharacterAdj2}. ${genderNounChar1} has been called in to investigate a house in ${place} by ${secondCharacterName}. ${genderNounChar2Poss} house has been ${verb1} on its own when ${genderNounChar2} is working as a ${job2} and isn't home. ${secondCharacterName} is ${secondCharacterAdj1} and ${secondCharacterAdj2} and doesn't usually belive in the supernatural but this has been going on for such a long time ${genderNounChar2} is desperate.`,
 		plotSecondParagraph: `Unfortunately the house is being uncooperative. With ${secondCharacterName} certain that ${firstCharacterName} is a fraud can ${genderNounChar1} take care of the spirits that are making the house ${verb2}? It doesn't help that the ${adj2} house seems to want to keep the two together. Can a skeptic and a fanatic put aside their feelings to find out the mysteries of this house? As far as ${firstCharacterName} considers that's a resound 'no'. But ${secondCharacterName} might be willing to finally be able to ${verb3} in peace. Especially after the house locks them in together.`
 		genre: 'romance'
