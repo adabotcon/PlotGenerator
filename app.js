@@ -120,12 +120,17 @@ function getRandomAdj(){
 	})
 }
 
+function generatePlot(genre){
+
+}
+
 
 $(function(){
 	$('.regions').hide();
 	regionListener(arrayRegions);
 	getRandomName();
 	getRandomAdj();
+	generatePlot();
 
 	// var startElement = $('.js-start-button');
 
@@ -223,14 +228,20 @@ var plot_array = [
 	}
 	{
 		ID: '7'
-		plotFirstParagraph: `${firstCharacterName} and ${secondCharacterName} are partners in crime. Specifically magical thieving. Though ${firstCharacterName} works as a ${job1} and ${secondCharacterName} works as a ${job2}, they only do so as a way to keep up a disguise so the guards don't catch up to them. On their latest run they picked up a map. ${secondCharacterName} is ${secondCharacterAdj1} and ${secondCharacterAdj2} which helps ${genderNounChar2HH} decide that they should sell it. ${firstCharacterName} is ${firstCharacterAdj1} and ${firstCharacterAdj1} and is far more interested in discovering what the map is for. But neither choice matters because when they get back to ${place} a group of strange people attack them using ${adj1} magic. Now the thieves are in to the secrets of an occult. With no way out they have to ${verb1}.`,
+		plotFirstParagraph: `${firstCharacterName} is a ${species1} and ${secondCharacterName} is a ${species2} that are partners in crime. Specifically magical thieving. Though ${firstCharacterName} works as a ${job1} and ${secondCharacterName} works as a ${job2}, they only do so as a way to keep up a disguise so the guards don't catch up to them. On their latest run they picked up a map. ${secondCharacterName} is ${secondCharacterAdj1} and ${secondCharacterAdj2} which helps ${genderNounChar2HH} decide that they should sell it. ${firstCharacterName} is ${firstCharacterAdj1} and ${firstCharacterAdj1} and is far more interested in discovering what the map is for. But neither choice matters because when they get back to ${place} a group of strange people attack them using ${adj1} magic. Now the thieves are in to the secrets of an occult. With no way out they have to ${verb1}.`,
 		plotSecondParagraph: `The ${adj2} occult seems to have spread across the kingdom and the thieves have no one they can trust. Until they meet up with a group of mages. Their own abilities will be tested and they will ${verb2} to make their power grow. The map is only the beginning, and the occult is only the surface. It's time to put away greed and ${verb3} for the sake of their world.`,
 		genre: 'fantasy'
 	}
 	{
 		ID: '8'
+		plotFirstParagraph: `${firstCharacterName} is a ${species1} who worked as a ${job1} but is now a Captain of a freighter for the Galactic ${place}. ${genderNounChar1} has picked up ${secondCharacterName} as a new ${job} for the ship. ${genderNounChar2} is a ${species2} an endangered species that has recently had their home planet destroyed. The details of the recent destruction have been ${verb1} and the ${adj1} media has stopped reporting on it. ${firstCharacterName} is ${firstCharacterAdj1} and ${firstCharacterAdj2} and just ready to get this delivery over with. Unfortunately whatever destroyed ${secondCharacterName}'s planet is now following the freighter.`,
+		plotSecondParagraph: `${secondCharacterName} is trying to get on with ${genderNounChar2Poss} life but loosing all of ${genderNounChar2Poss} family has made ${genderNounChar2HH} ${secondCharacterAdj1}  and ${secondCharacterAdj2}. It doesn't help that ${genderNounChar2} is certain that the destruction of the planet is ${genderNounChar2Poss} because &{genderNounChar2} ${verb2}. Now ${firstCharacterName} and ${secondCharacterName} will have to ${verb3} in order to stay alive and discover the secret behind the destruction before the ${adj2} freighter is destroyed.`,
+		genre: 'sci-fi'
 	}
 	{
 		ID: '9'
+		plotFirstParagraph: `${firstCharacterName} is a ${species1} who comes from a family that worked as ${job1}. But ${genderNounChar1} is far more interested in going to space. ${genderNounChar1} decides to join the ${place} Academy in order to ${verb1} and become a ${adj1} cadet. Cadet's are able to join either the research staff or the military in order to travel the cosmos. While there ${firstCharacterName} meets ${secondCharacterName} a ${species2} and a senior Cadet a year away from going on ${genderNounChar2Poss} first mission. They do not get along. ${firstCharacterName} tends to be more ${firstCharacterAdj1} and ${firstCharacterAdj2} which conflicts with ${secondCharacterName} who is more ${secondCharacterAdj1} and ${secondCharacterAdj2}. Their conflict starts with them ${verb2} together and ends with a fight.`,
+		plotSecondParagraph: `But while on probation for the fight the two stumble across a ${adj2} meeting. Now they are flung into a conspiracy as old as the acedemy and the strange secret to space travel. Soon they will have to ${verb3} their differences in order to save the peace that the world has achieved with others. Can they do it without getting thrown out of the ${place} Academy? Or will none of that matter?`,
+		genre: 'sci-fi'
 	}
 ]
