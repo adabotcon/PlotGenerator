@@ -121,7 +121,25 @@ function getRandomAdj(){
 }
 
 function generatePlot(genre){
-
+	$('.js-generate-plot').on('click', function(event) {
+		event.preventDefault();
+		var firstCharacterName = $('input[name=first-name]').val();
+		var secondCharacterName = $('input[name=second-name]').val();
+		var firstCharacterGender = $('.js-name-form-char1-basic').find($('input[name=gender]:checked')).val();
+		var secondCharacterGender = $('.js-name-form-char2-basic').find($('input[name=gender]:checked')).val();
+		var place = $('input[name=place]').val();
+		var job1 = $('input[name=char1-job]').val();
+		var job2 = $('input[name=char2-job]').val();
+		var firstCharacterAdj1 = $('input[name=first-char-adj1]').val();
+		var firstCharacterAdj2 = $('input[name=first-char-adj2]').val();
+		var secondCharacterAdj1 = $('input[name=second-char-adj1]').val();
+		var secondCharacterAdj2 = $('input[name=second-char-adj2]').val();
+		var adj1 = $('input[name=adj1]').val();
+		var adj2 = $('input[name=adj2]').val();
+		var verb1 = $('input[name=verb1]').val();
+		var verb2 = $('input[name=verb2]').val();
+		var verb3 = $('input[name=verb3]').val();
+	});
 }
 
 
@@ -198,7 +216,7 @@ var plot_array = [
 	}
 	{
 		ID: '2',
-		plotFirstParagraph: `${firstCharacterName} has just moved to ${place} in order to work as a ${job1}. The house is large and didn't cost much, it seemed like a bargain. But ${genderNounChar1} quickly finds out the reason for that. It seems that the last family to live there was murdered. Though the police ruled it a murder/suicide perpatrated by one of the ${adj2} girls, the people of the town have other ideas. ${secondCharacterName} has lived at ${place} all ${genderNounChar2Poss} life. ${genderNounChar1} is a ${secondCharacterAdj1}, ${secondCharacterAdj2} who is interested in the history of ${genderNounChar2Poss} hometown but works as a ${job2} on the side.`,
+		plotFirstParagraph: `${firstCharacterName} has just moved to ${place} in order to work as a ${job1}. The house is large and didn't cost much, it seemed like a bargain. But ${genderNounChar1} quickly finds out the reason for that. It seems that the last family to live there was murdered. Though the police ruled it a murder/suicide perpatrated by one of the ${adj2} girls, the people of the town have other ideas. ${secondCharacterName} has lived at ${place} all ${genderNounChar2Poss} life. ${genderNounChar2} is a ${secondCharacterAdj1}, ${secondCharacterAdj2} who is interested in the history of ${genderNounChar2Poss} hometown but works as a ${job2} on the side.`,
 		plotSecondParagraph: `It seems that ${firstCharacterName}'s house is not the only one with such a history in the last 200 years. There have been other houses around the area with similar murders. However because of the time frame the police have dismissed any similarties. Now ${firstCharacterName} must join forces with ${secondCharacterName} in order to unravel a 200 year old mystery. But they aren't the only ones after the truth. Now they must ${verb1} and ${verb2} in order to dodge ${adj1} figures that seem determined to stop them. It doesn't help that ${firstCharacterName} has a personality described as ${firstCharacterAdj1} and ${fistCharacterAdj2} by ${genderNounChar1Poss} friends.`,
 		genre: 'mystery'
 	}
