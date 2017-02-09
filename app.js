@@ -28,7 +28,9 @@ function getPlot(firstCharacterName, firstCharacterAdj1, firstCharacterAdj2, fir
 		genderNounChar2Poss = "his";
 		genderNounChar2HH = "him";
 	}
+	if(genre==="romance"){
 
+	}
 	var plotNum = Math.floor(Math.random() * 4);
 	var plot = readTextFile(plotNum, genre);
 
@@ -39,7 +41,7 @@ function readTextFile(plotNum, genre){
 
 }
 
-function getDataFromWordnik(wordType, callback){
+function getDataFromWordnik(wordType, callback, closestInput){
 	var query = {
 		hasDictionaryDef: false,
 		includePartOfSpeech: wordType,
@@ -52,7 +54,7 @@ function getDataFromWordnik(wordType, callback){
 		api_key: '3c1825dd8857abc17e0060ff479098d6269c21519abe76465'
 	};
 
-	$.getJSON(Wordnik_BASE_URL, query, callback);
+	$.post(Wordnik_BASE_URL, query, callback(closestInput));
 }
 
 function getDataFromUinames(gender, region, callback) {
@@ -65,13 +67,15 @@ function getDataFromUinames(gender, region, callback) {
 	$.getJSON(Uinames_BASE_URL, query, callback);
 }
 
-// function displayWordnikData(data){
-// 	console.log(data);
-// 	var word = data.word;
-// 	closestInput.text(word);
-// }
+function displayWordnikData(data, closestInput){
+	console.log(closestInput);
+	debugger;
+	var word = data.word;
+	console.log(word);
+}
 
 function displayUinamesData(data){
+	console.log(data);
 	var resultName = data.name;
 	var resultLastName = data.surname;
 }
@@ -97,7 +101,7 @@ function buildRegionsList(arrayRegions){
 function getRandomName(){
 	$('.js-button-name').on('click', function(event){
 		event.preventDefault();
-		var region = $('.js-region-trigger').text();
+		var region = $('.js-region-trigger').text().trim();
 		if(region === "Choose Your Region"){
 			region = "United States";
 		}
@@ -107,15 +111,14 @@ function getRandomName(){
 	})
 }
 
-// function getRandomAdj(){
-// 	debugger;
-// 	$('.js-adj-button').on('click', function(event) {
-// 		debugger;
-// 		event.preventDefault();
-// 		var closestInput = $(event.currentTarget.closest('input'));
-// 		getDataFromWordnik("adjective", displayWordnikData(closestInput));
-// 	})
-// }
+function getRandomAdj(){
+	$('.js-adj-button').on('click', function(event) {
+		event.preventDefault();
+		var closestInput = $(event.currentTarget.closest('input'));
+		debugger;
+		getDataFromWordnik("adjective", displayWordnikData, closestInput);
+	})
+}
 
 
 $(function(){
