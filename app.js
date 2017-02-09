@@ -218,7 +218,19 @@ var plot_array = [
 	{
 		ID: '6'
 		plotFirstParagraph: `${firstCharacterName} is the ruler of a small kingdom named ${place}. ${genderNounChar1} is considered ${firstCharacterAdj1} and ${firstCharacterAdj2} which makes them the perfect ruler. But not everyone thinks this way. ${secondCharacterName} is peasant who has lost everything after being kicked out of their job, ${job2}. Now ${genderNounChar2} is ${secondCharacterAdj1} and ${secondCharacterAdj2}. As a consequence ${genderNounChar2} has gotten involved with a rebellion that has been stirring in the kingdom of ${place}. ${secondCharacterName} is surprised to find out that this rebellion is using magic. Something that has been considered a myth. Now ${secondCharacterName} is learning to use their magic to ${verb1}.`,
-		plotSecondParagraph: `${firstCharacterName} has been growing increasingly worried. The ${adj1} rebellion is gaining momentum. ${genderNounChar1} can't convince ${genderNounChar1Poss} council to ${verb2} in order to stop them. ${genderNounChar1} is validated when ${secondCharacterName}  ends up kidnapping ${genderNounChar1HH}. Now they are on their way back to the rebellion headquarters, but there's more to this then just a repressed people. Magic is returning to the world and they will have to ${verb3} to make certain that ${place} isn't bulled over. But can ${secondCharacterName} convince ${firstCharacterName} that there's a plight beyond just the rebellion? Or will ${genderNounChar2} become the latest casualty and mauder of the cause.`,
+		plotSecondParagraph: `${firstCharacterName} has been growing increasingly worried. The ${adj1} rebellion is gaining momentum. ${genderNounChar1} can't convince ${genderNounChar1Poss} council to ${verb2} in order to stop them. ${genderNounChar1} is validated when ${secondCharacterName}  ends up kidnapping ${genderNounChar1HH}. Now they are on their way back to the rebellion headquarters disguised as ${job1}, but there's more to this then just a repressed people. Magic is returning to the world and they will have to ${verb3} to make certain that ${place} isn't bulled over. But can ${secondCharacterName} convince ${firstCharacterName} that there's a plight beyond just the rebellion? Or will ${genderNounChar2} become the latest casualty and mauder of the ${adj2} cause.`,
 		genre: 'fantasy'
+	}
+	{
+		ID: '7'
+		plotFirstParagraph: `${firstCharacterName} and ${secondCharacterName} are partners in crime. Specifically magical thieving. Though ${firstCharacterName} works as a ${job1} and ${secondCharacterName} works as a ${job2}, they only do so as a way to keep up a disguise so the guards don't catch up to them. On their latest run they picked up a map. ${secondCharacterName} is ${secondCharacterAdj1} and ${secondCharacterAdj2} which helps ${genderNounChar2HH} decide that they should sell it. ${firstCharacterName} is ${firstCharacterAdj1} and ${firstCharacterAdj1} and is far more interested in discovering what the map is for. But neither choice matters because when they get back to ${place} a group of strange people attack them using ${adj1} magic. Now the thieves are in to the secrets of an occult. With no way out they have to ${verb1}.`,
+		plotSecondParagraph: `The ${adj2} occult seems to have spread across the kingdom and the thieves have no one they can trust. Until they meet up with a group of mages. Their own abilities will be tested and they will ${verb2} to make their power grow. The map is only the beginning, and the occult is only the surface. It's time to put away greed and ${verb3} for the sake of their world.`,
+		genre: 'fantasy'
+	}
+	{
+		ID: '8'
+	}
+	{
+		ID: '9'
 	}
 ]
