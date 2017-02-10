@@ -59,6 +59,7 @@ function readPlotFile(plotNum, plot_array){
 }
 
 function displayPlot(firstParagraph, secondParagraph){
+	debugger;
 	$('js-first-paragraph').text(firstParagraph);
 	$('.js-second-paragraph').text(secondParagraph);
 	window.location.href = "plotDisplayPage.html";
@@ -73,19 +74,20 @@ function retryBack(){
 
 function genreClick(){
 	$('.js-genre-item').on('click', function(event) {
-		if($('.js-genre-item').text() === "Romance")
+		debugger;
+		if($(this).text() === "Romance")
 		{
 			window.location.href = "basicFormPlot.html";
 			genre = "romance";
-		} else if($('.js-genre-item').text() === "Modern Mystery") 
+		} else if($(this).text() === "Modern Mystery") 
 		{
 			window.location.href = "basicFormPlot.html";
 			genre = "mystery";
-		} else if($('.js-genre-item').text() === "Fantasy") 
+		} else if($(this).text() === "Fantasy") 
 		{
 			window.location.href = "fantsciFormPlot.html";
 			genre = "fantasy";
-		} else if($('.js-genre-item').text() === "Sci-Fi")
+		} else if($(this).text() === "Sci-Fi")
 		{
 			window.location.href = "fantsciFormPlot.html";
 			genre = "sci-fi";
@@ -96,11 +98,12 @@ function genreClick(){
 function letTheBunniesOut(){
 	$('.js-start-button').on('click', function(event) {
 		event.preventDefault();
+		debugger;
 		window.location.href = "genrePage.html";
 	})
 }
 
-function getDataFromWordnik(wordType, callback, closestInput){
+function getDataFromWordnik(wordType, displayWordnikData, closestInput){
 	var query = {
 		hasDictionaryDef: false,
 		includePartOfSpeech: wordType,
@@ -113,7 +116,9 @@ function getDataFromWordnik(wordType, callback, closestInput){
 		api_key: '3c1825dd8857abc17e0060ff479098d6269c21519abe76465'
 	};
 
-	$.getJSON(Wordnik_BASE_URL, query, callback(closestInput));
+	var callback = (data) => displayWordnikData.call(this, data, closestInput);
+
+	$.getJSON(Wordnik_BASE_URL, query, callback);
 }
 
 function getDataFromUinames(gender, region, displayUinamesData, closestInput) {
@@ -132,20 +137,22 @@ function displayWordnikData(data, closestInput){
 	console.log(closestInput);
 	var word = data.word;
 	console.log(word);
+	closestInput.val(word);
 }
 
 function displayUinamesData(data, closestInput){
-	debugger;
-	console.log(data);
-	console.log(closestInput);
 	var resultName = data.name;
 	var resultLastName = data.surname;
+	console.log(`${resultName} ${resultLastName}`);
+	debugger;
+	closestInput.val(`${resultName} ${resultLastName}`);
+	console.log(closestInput.val());
 }
 
 function regionListener(arrayRegions){
 	$('.js-region-trigger').on('click', function(event) {
 		event.preventDefault();
-		buildRegionsList(arrayRegions);
+		buildRegionsList(arrayRegions, 'regions');
 		$('.regions').fadeToggle();
 		$('.regions li').on('click', function(event) {
 			$('.js-region-trigger').text($(this).text());
@@ -154,10 +161,22 @@ function regionListener(arrayRegions){
 	});
 }
 
-function buildRegionsList(arrayRegions){
+function regionListenerChar2(arrayRegions){
+	$('.js-region-trigger-char2').on('click', function(event) {
+		event.preventDefault();
+		buildRegionsList(arrayRegions, 'regions-2');
+		$('.regions-2').fadeToggle();
+		$('.regions-2 li').on('click', function(event) {
+			$('.js-region-trigger-char2').text($(this).text());
+			$('.regions-2').fadeToggle();
+		})
+	});
+}
+
+function buildRegionsList(arrayRegions, regionClass){
 	var regionsHTML = arrayRegions.map(region => `<li> ${region} </li>`);
 
-	$('.regions ul').html(regionsHTML);
+	$(`.${regionClass} ul`).html(regionsHTML);
 }
 
 function getRandomName(){
@@ -184,10 +203,17 @@ function getRandomAdj(){
 	})
 }
 
-function generatePlot(){
-	var plot = "";
+function getRandomVerb(){
+	$('.js-verb-button').on('click', function(event) {
+		event.preventDefault();
+		var closestInput = $(event.currentTarget.closest('input'));
+		getDataFromWordnik("verb", displayWordnikData, closestInput);
+	})
+}
 
+function generatePlot(){
 	$('.js-generate-plot').on('click', function(event) {
+		debugger;
 		event.preventDefault();
 		var firstCharacterName = $('input[name=first-name]').val();
 		var secondCharacterName = $('input[name=second-name]').val();
@@ -277,9 +303,13 @@ function buildPlotArray(){
 
 $(function(){
 	$('.regions').hide();
+	letTheBunniesOut();
+	genreClick();
 	regionListener(arrayRegions);
+	regionListenerChar2(arrayRegions);
 	getRandomName();
 	getRandomAdj();
+	getRandomVerb();
 	generatePlot();
 
 	// var startElement = $('.js-start-button');
