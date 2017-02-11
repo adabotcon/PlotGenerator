@@ -1,8 +1,7 @@
 var Wordnik_BASE_URL = 'http://api.wordnik.com:80/v4/words.json/randomWord';
 var Uinames_BASE_URL = 'http://uinames.com/api/';
-var genre = "";
 
-function getPlot(genre, firstCharacterName, secondCharacterName, firstCharacterGender, secondCharacterGender, place, job1, job2, firstCharacterAdj1, firstCharacterAdj2, secondCharacterAdj1, secondCharacterAdj2, adj1, adj2, verb1, verb2, verb3){
+function getPlot(genre, firstCharacterName, secondCharacterName, firstCharacterGender, secondCharacterGender, place, job1, job2, firstCharacterAdj1, firstCharacterAdj2, secondCharacterAdj1, secondCharacterAdj2, adj1, adj2, verb1, verb2, verb3, species1, species2){
 	var genderNounChar1 = "";
 	var genderNounChar2 = "";
 	var genderNounChar1Poss = "";
@@ -30,9 +29,10 @@ function getPlot(genre, firstCharacterName, secondCharacterName, firstCharacterG
 		genderNounChar2HH = "him";
 	}
 
-	var plot_array = buildPlotArray();
+	var plot_array = buildPlotArray(genre, firstCharacterName, secondCharacterName, firstCharacterGender, secondCharacterGender, place, job1, job2, firstCharacterAdj1, firstCharacterAdj2, secondCharacterAdj1, secondCharacterAdj2, adj1, adj2, verb1, verb2, verb3, genderNounChar1, genderNounChar2, genderNounChar2Poss, genderNounChar1Poss, genderNounChar1HH, genderNounChar2HH, species1, species2);
 
 	var plotNum = 0;
+
 	if(genre==="romance"){
 		plotNum = Math.floor(Math.random() * (5-3+1) + 3);
 	} else if(genre==="mystery"){
@@ -44,7 +44,7 @@ function getPlot(genre, firstCharacterName, secondCharacterName, firstCharacterG
 
 	}
 
-	var plot = readPlotFile(plotNum, plot_array);
+	var plot = readPlotFile(plotNum.toString(), plot_array);
 	var firstParagraph = plot.plotFirstParagraph;
 	var secondParagraph = plot.plotSecondParagraph;
 	displayPlot(firstParagraph, secondParagraph);
@@ -52,17 +52,19 @@ function getPlot(genre, firstCharacterName, secondCharacterName, firstCharacterG
 }
 
 function readPlotFile(plotNum, plot_array){
-	var plot = $.grep(plot_array, function(event) {
-		return event.ID === plotNum;
-	})
+	var plot = "";
+	$.each(plot_array, function(index, obj) {
+		if(obj.ID === plotNum){
+			plot = obj;
+		}
+	});
 	return plot;
 }
 
 function displayPlot(firstParagraph, secondParagraph){
-	debugger;
+	window.location.href = "plotDisplayPage.html";
 	$('js-first-paragraph').text(firstParagraph);
 	$('.js-second-paragraph').text(secondParagraph);
-	window.location.href = "plotDisplayPage.html";
 }
 
 function retryBack(){
@@ -74,23 +76,18 @@ function retryBack(){
 
 function genreClick(){
 	$('.js-genre-item').on('click', function(event) {
-		debugger;
 		if($(this).text() === "Romance")
 		{
-			window.location.href = "basicFormPlot.html";
-			genre = "romance";
+			window.location.href = "basicFormPlot.html#romance";
 		} else if($(this).text() === "Modern Mystery") 
 		{
-			window.location.href = "basicFormPlot.html";
-			genre = "mystery";
+			window.location.href = "basicFormPlot.html#mystery";
 		} else if($(this).text() === "Fantasy") 
 		{
-			window.location.href = "fantsciFormPlot.html";
-			genre = "fantasy";
+			window.location.href = "fantsciFormPlot.html#fantasy";
 		} else if($(this).text() === "Sci-Fi")
 		{
-			window.location.href = "fantsciFormPlot.html";
-			genre = "sci-fi";
+			window.location.href = "fantsciFormPlot.html#sci-fi";
 		}
 	})
 }
@@ -98,7 +95,6 @@ function genreClick(){
 function letTheBunniesOut(){
 	$('.js-start-button').on('click', function(event) {
 		event.preventDefault();
-		debugger;
 		window.location.href = "genrePage.html";
 	})
 }
@@ -133,7 +129,6 @@ function getDataFromUinames(gender, region, displayUinamesData, closestInput) {
 }
 
 function displayWordnikData(data, closestInput){
-	debugger;
 	console.log(closestInput);
 	var word = data.word;
 	console.log(word);
@@ -144,7 +139,6 @@ function displayUinamesData(data, closestInput){
 	var resultName = data.name;
 	var resultLastName = data.surname;
 	console.log(`${resultName} ${resultLastName}`);
-	debugger;
 	closestInput.val(`${resultName} ${resultLastName}`);
 	console.log(closestInput.val());
 }
@@ -182,12 +176,12 @@ function buildRegionsList(arrayRegions, regionClass){
 function getRandomName(){
 	$('.js-button-name').on('click', function(event){
 		event.preventDefault();
-		var region = $('.js-region-trigger').text().trim();
+		var region = $(this).closest("form").find("p").text().trim();
 		if(region === "Choose Your Region"){
 			region = "United States";
 		}
 
-		var closestInput = $(event.currentTarget.closest('input'));
+		var closestInput = $(event.currentTarget).closest("form").find("input[type=text]");
 		console.log(closestInput);
 		var gender = $('input[name=gender]:checked').val();
 		getDataFromUinames(gender, region, displayUinamesData, closestInput);
@@ -197,8 +191,7 @@ function getRandomName(){
 function getRandomAdj(){
 	$('.js-adj-button').on('click', function(event) {
 		event.preventDefault();
-		var closestInput = $(event.currentTarget.closest('input'));
-		debugger;
+		var closestInput = $(event.currentTarget).closest("div").find("input[type=text]");
 		getDataFromWordnik("adjective", displayWordnikData, closestInput);
 	})
 }
@@ -206,15 +199,15 @@ function getRandomAdj(){
 function getRandomVerb(){
 	$('.js-verb-button').on('click', function(event) {
 		event.preventDefault();
-		var closestInput = $(event.currentTarget.closest('input'));
+		var closestInput = $(event.currentTarget).closest("div").find("input[type=text]");
 		getDataFromWordnik("verb", displayWordnikData, closestInput);
 	})
 }
 
 function generatePlot(){
 	$('.js-generate-plot').on('click', function(event) {
-		debugger;
 		event.preventDefault();
+		var genre = window.location.hash.substring(1);
 		var firstCharacterName = $('input[name=first-name]').val();
 		var secondCharacterName = $('input[name=second-name]').val();
 		var firstCharacterGender = $('.js-name-form-char1-basic').find($('input[name=gender]:checked')).val();
@@ -231,13 +224,53 @@ function generatePlot(){
 		var verb1 = $('input[name=verb1]').val();
 		var verb2 = $('input[name=verb2]').val();
 		var verb3 = $('input[name=verb3]').val();
+		var species1 = "Human";
+		var species2 = "Human";
+		if(genre === "fantasy" || genre === "sci-fi"){
+			species1 = $('input[name=char1-species]').val();
+			species2 = $('input[name=char2-species]').val();
 
-		getPlot(genre, firstCharacterName, secondCharacterName, firstCharacterGender, secondCharacterGender, place, job1, job2, firstCharacterAdj1, firstCharacterAdj2, secondCharacterAdj1, secondCharacterAdj2, adj1, adj2, verb1, verb2, verb3);
+		}
+
+		var valueArray = [firstCharacterName, secondCharacterName, firstCharacterGender, secondCharacterGender, place, job1, job2, firstCharacterAdj1, firstCharacterAdj2, secondCharacterAdj1, secondCharacterAdj2, adj1, adj2, verb1, verb2, verb3];
+
+		var isBlank = checkForBlanks(genre, valueArray);
+
+		if(!isBlank){
+			getPlot(genre, firstCharacterName, secondCharacterName, firstCharacterGender, secondCharacterGender, place, job1, job2, firstCharacterAdj1, firstCharacterAdj2, secondCharacterAdj1, secondCharacterAdj2, adj1, adj2, verb1, verb2, verb3, species1, species2);
+		}
 
 	});
 }
 
-function buildPlotArray(){
+function checkForBlanks(genre, valueArray){
+	var isBlank = false;
+	if(genre === "fantasy" || genre === "sci-fi")
+		{
+			for(var i = 0; i <= valueArray.length; i++)
+			{
+				if(valueArray[i].length < 1){
+					alert("You have left a field blank.");
+					isBlank = true;
+					break;
+				}
+			}
+
+		} else 
+		{
+			for(var i = 0; i <= valueArray.length -2; i++)
+			{
+				if(valueArray[i].length < 1){
+					alert("You have left a field blank.");
+					isBlank = true;
+					break;
+				}
+			}
+		}
+	return isBlank;
+}
+
+function buildPlotArray(genre, firstCharacterName, secondCharacterName, firstCharacterGender, secondCharacterGender, place, job1, job2, firstCharacterAdj1, firstCharacterAdj2, secondCharacterAdj1, secondCharacterAdj2, adj1, adj2, verb1, verb2, verb3, genderNounChar1, genderNounChar2, genderNounChar2Poss, genderNounChar1Poss, genderNounChar1HH, genderNounChar2HH, species1, species2){
 
 	var plot_array = [
 	{
@@ -249,7 +282,7 @@ function buildPlotArray(){
 	{
 		ID: '2',
 		plotFirstParagraph: `${firstCharacterName} has just moved to ${place} in order to work as a ${job1}. The house is large and didn't cost much, it seemed like a bargain. But ${genderNounChar1} quickly finds out the reason for that. It seems that the last family to live there was murdered. Though the police ruled it a murder/suicide perpatrated by one of the ${adj2} girls, the people of the town have other ideas. ${secondCharacterName} has lived at ${place} all ${genderNounChar2Poss} life. ${genderNounChar2} is a ${secondCharacterAdj1}, ${secondCharacterAdj2} who is interested in the history of ${genderNounChar2Poss} hometown but works as a ${job2} on the side.`,
-		plotSecondParagraph: `It seems that ${firstCharacterName}'s house is not the only one with such a history in the last 200 years. There have been other houses around the area with similar murders. However because of the time frame the police have dismissed any similarties. Now ${firstCharacterName} must join forces with ${secondCharacterName} in order to unravel a 200 year old mystery. But they aren't the only ones after the truth. Now they must ${verb1} and ${verb2} in order to dodge ${adj1} figures that seem determined to stop them. It doesn't help that ${firstCharacterName} has a personality described as ${firstCharacterAdj1} and ${fistCharacterAdj2} by ${genderNounChar1Poss} friends.`,
+		plotSecondParagraph: `It seems that ${firstCharacterName}'s house is not the only one with such a history in the last 200 years. There have been other houses around the area with similar murders. However because of the time frame the police have dismissed any similarties. Now ${firstCharacterName} must join forces with ${secondCharacterName} in order to unravel a 200 year old mystery. But they aren't the only ones after the truth. Now they must ${verb1} and ${verb2} in order to dodge ${adj1} figures that seem determined to stop them. It doesn't help that ${firstCharacterName} has a personality described as ${firstCharacterAdj1} and ${firstCharacterAdj2} by ${genderNounChar1Poss} friends.`,
 		genre: 'mystery'
 	},
 	{
@@ -261,7 +294,7 @@ function buildPlotArray(){
 	{
 		ID: '4',
 		plotFirstParagraph: `${firstCharacterName} is a ${firstCharacterAdj1} and ${firstCharacterAdj2} who works at ${job1} in ${place}. ${genderNounChar1} used to be childhood friends with ${secondCharacterName} but they had a falling out after they ${verb1}. Now after years of never seeing each other they have met and ${secondCharacterName} is ${secondCharacterAdj1} and ${secondCharacterAdj2} everything that ${firstCharacterName} hates. Unfortunately ${genderNounChar1Poss} work is joining forces with ${secondCharacterName}'s workplace.`,
-		plotSecondParagraph: `${secondCharacterName} has been working double shifts as a ${job} and hates it. ${genderNounChar2} is desperate to ${verb2} but can't seem to get anywhere. This ${adj1} project with ${firstCharacterName}'s work seems the best way to move forward. If only ${firstCharacterName} would put aside ${genderNounChar1Poss} ${adj2} hatred. Especially since ${secondCharacterName} still enjoys the idea of ${verb3} with ${genderNounChar1HH}. Will they every get over past hurt, or will this project fall into the river?`,
+		plotSecondParagraph: `${secondCharacterName} has been working double shifts as a ${job2} and hates it. ${genderNounChar2} is desperate to ${verb2} but can't seem to get anywhere. This ${adj1} project with ${firstCharacterName}'s work seems the best way to move forward. If only ${firstCharacterName} would put aside ${genderNounChar1Poss} ${adj2} hatred. Especially since ${secondCharacterName} still enjoys the idea of ${verb3} with ${genderNounChar1HH}. Will they every get over past hurt, or will this project fall into the river?`,
 		genre: 'romance'
 	},
 	{
@@ -284,7 +317,7 @@ function buildPlotArray(){
 	},
 	{
 		ID: '8',
-		plotFirstParagraph: `${firstCharacterName} is a ${species1} who worked as a ${job1} but is now a Captain of a freighter for the Galactic ${place}. ${genderNounChar1} has picked up ${secondCharacterName} as a new ${job} for the ship. ${genderNounChar2} is a ${species2} an endangered species that has recently had their home planet destroyed. The details of the recent destruction have been ${verb1} and the ${adj1} media has stopped reporting on it. ${firstCharacterName} is ${firstCharacterAdj1} and ${firstCharacterAdj2} and just ready to get this delivery over with. Unfortunately whatever destroyed ${secondCharacterName}'s planet is now following the freighter.`,
+		plotFirstParagraph: `${firstCharacterName} is a ${species1} who worked as a ${job1} but is now a Captain of a freighter for the Galactic ${place}. ${genderNounChar1} has picked up ${secondCharacterName} as a new ${job2} for the ship. ${genderNounChar2} is a ${species2} an endangered species that has recently had their home planet destroyed. The details of the recent destruction have been ${verb1} and the ${adj1} media has stopped reporting on it. ${firstCharacterName} is ${firstCharacterAdj1} and ${firstCharacterAdj2} and just ready to get this delivery over with. Unfortunately whatever destroyed ${secondCharacterName}'s planet is now following the freighter.`,
 		plotSecondParagraph: `${secondCharacterName} is trying to get on with ${genderNounChar2Poss} life but loosing all of ${genderNounChar2Poss} family has made ${genderNounChar2HH} ${secondCharacterAdj1}  and ${secondCharacterAdj2}. It doesn't help that ${genderNounChar2} is certain that the destruction of the planet is ${genderNounChar2Poss} because &{genderNounChar2} ${verb2}. Now ${firstCharacterName} and ${secondCharacterName} will have to ${verb3} in order to stay alive and discover the secret behind the destruction before the ${adj2} freighter is destroyed.`,
 		genre: 'sci-fi'
 	},

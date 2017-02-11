@@ -1,6 +1,6 @@
 header{
 	border: 1px solid white;
-	background-color: black;
+	background: url("night-sky-background.jpg");
 	color: white;
 	padding-left: 10px;
 }
@@ -23,5 +23,13 @@ header{
 .char-form, .word-form{
 	border: 1px solid lightgrey;
 	padding: 20px;
+}
+
+.genre{
+	cursor: pointer;
+}
+
+.region-trigger{
+	cursor: pointer;
 }
 
