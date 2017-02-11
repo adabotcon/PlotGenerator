@@ -63,8 +63,10 @@ function readPlotFile(plotNum, plot_array){
 
 function displayPlot(firstParagraph, secondParagraph){
 	window.location.href = "plotDisplayPage.html";
-	$('js-first-paragraph').text(firstParagraph);
-	$('.js-second-paragraph').text(secondParagraph);
+	window.onLoad = function(){
+		$('js-first-paragraph').text(firstParagraph);
+		$('.js-second-paragraph').text(secondParagraph);
+	}
 }
 
 function retryBack(){

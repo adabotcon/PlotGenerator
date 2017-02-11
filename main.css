@@ -1,8 +1,17 @@
 header{
 	border: 1px solid white;
-	background: url("night-sky-background.jpg");
-	color: white;
+	background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("spaceship.jpg") no-repeat center top;
+	background-size: cover;
+	font-family: 'Bahiana', cursive;
+	color: #2573C8;
 	padding-left: 10px;
+}
+
+body{
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	background: url("galaxy-space-background.jpg") no-repeat;
+	background-size: cover;
 }
 
 .start-page-main, .pick-genre-div{
