@@ -3,6 +3,7 @@ header{
 	background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("spaceship.jpg") no-repeat center top;
 	background-size: cover;
 	font-family: 'Bahiana', cursive;
+	/*font-size: 20px;*/
 	color: #2573C8;
 	padding-left: 10px;
 }
@@ -25,8 +26,14 @@ body{
 .genre-list > li{
 	list-style: none;	
 	margin-bottom: 20px;
-	border: 1px solid black;
+	border: 1px dotted white;
 	padding: 20px;
+	width: 50%;
+}
+
+.romance {
+	background: url("one-single-rose") no-repeat center;
+
 }
 
 .char-form, .word-form{
