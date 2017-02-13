@@ -62,11 +62,14 @@ function readPlotFile(plotNum, plot_array){
 }
 
 function displayPlot(firstParagraph, secondParagraph){
-	window.location.href = "plotDisplayPage.html";
-	window.onLoad = function(){
-		$('js-first-paragraph').text(firstParagraph);
-		$('.js-second-paragraph').text(secondParagraph);
-	}
+	hideClass($('.js-name-form-char1-basic'));
+	hideClass($('.js-name-form-char2-basic'));
+	hideClass($('.js-adj-verb-form'));
+
+	$('.js-first-paragraph').text(firstParagraph);
+	$('.js-second-paragraph').text(secondParagraph);
+
+	showClass($('.js-final-plot'));
 }
 
 function retryBack(){
@@ -272,6 +275,14 @@ function checkForBlanks(genre, valueArray){
 	return isBlank;
 }
 
+function hideClass(element){
+	element.addClass('hidden');
+}
+
+function showClass(element){
+	element.removeClass('hidden');
+}
+
 function buildPlotArray(genre, firstCharacterName, secondCharacterName, firstCharacterGender, secondCharacterGender, place, job1, job2, firstCharacterAdj1, firstCharacterAdj2, secondCharacterAdj1, secondCharacterAdj2, adj1, adj2, verb1, verb2, verb3, genderNounChar1, genderNounChar2, genderNounChar2Poss, genderNounChar1Poss, genderNounChar1HH, genderNounChar2HH, species1, species2){
 
 	var plot_array = [
@@ -346,6 +357,7 @@ $(function(){
 	getRandomAdj();
 	getRandomVerb();
 	generatePlot();
+	retryBack();
 
 	// var startElement = $('.js-start-button');
 
