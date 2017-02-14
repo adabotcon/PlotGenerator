@@ -37,7 +37,7 @@ function getPlot(genre, firstCharacterName, secondCharacterName, firstCharacterG
 		plotNum = Math.floor(Math.random() * (5-3+1) + 3);
 	} else if(genre==="mystery"){
 		plotNum = Math.floor(Math.random() * (2-1+1) + 1);
-	} else if(genre==="sci-fi"){
+	} else if(genre==="scifi"){
 		plotNum = Math.floor(Math.random() * (9-8+1) + 8);
 	} else if(genre==="fantasy"){
 		plotNum = Math.floor(Math.random() * (7-6+1) + 6);
@@ -92,7 +92,7 @@ function genreClick(){
 			window.location.href = "fantsciFormPlot.html#fantasy";
 		} else if($(this).text() === "Sci-Fi")
 		{
-			window.location.href = "fantsciFormPlot.html#sci-fi";
+			window.location.href = "fantsciFormPlot.html#scifi";
 		}
 	})
 }
@@ -134,18 +134,14 @@ function getDataFromUinames(gender, region, displayUinamesData, closestInput) {
 }
 
 function displayWordnikData(data, closestInput){
-	console.log(closestInput);
 	var word = data.word;
-	console.log(word);
 	closestInput.val(word);
 }
 
 function displayUinamesData(data, closestInput){
 	var resultName = data.name;
 	var resultLastName = data.surname;
-	console.log(`${resultName} ${resultLastName}`);
 	closestInput.val(`${resultName} ${resultLastName}`);
-	console.log(closestInput.val());
 }
 
 function regionListener(arrayRegions){
@@ -187,7 +183,6 @@ function getRandomName(){
 		}
 
 		var closestInput = $(event.currentTarget).closest("form").find("input[type=text]");
-		console.log(closestInput);
 		var gender = $('input[name=gender]:checked').val();
 		getDataFromUinames(gender, region, displayUinamesData, closestInput);
 	})
@@ -231,7 +226,7 @@ function generatePlot(){
 		var verb3 = $('input[name=verb3]').val();
 		var species1 = "Human";
 		var species2 = "Human";
-		if(genre === "fantasy" || genre === "sci-fi"){
+		if(genre === "fantasy" || genre === "scifi"){
 			species1 = $('input[name=char1-species]').val();
 			species2 = $('input[name=char2-species]').val();
 
@@ -250,28 +245,19 @@ function generatePlot(){
 
 function checkForBlanks(genre, valueArray){
 	var isBlank = false;
-	if(genre === "fantasy" || genre === "sci-fi")
-		{
-			for(var i = 0; i <= valueArray.length; i++)
-			{
-				if(valueArray[i].length < 1){
-					alert("You have left a field blank.");
-					isBlank = true;
-					break;
-				}
-			}
+	debugger;
 
-		} else 
-		{
-			for(var i = 0; i <= valueArray.length -2; i++)
-			{
-				if(valueArray[i].length < 1){
-					alert("You have left a field blank.");
-					isBlank = true;
-					break;
-				}
+	for(var i = 0; i < valueArray.length; i++)
+		{	console.log(valueArray[i]);
+			debugger;
+			if(valueArray[i].length < 1){
+				alert("You have left a field blank.");
+				isBlank = true;
+				break;
 			}
 		}
+
+
 	return isBlank;
 }
 
