@@ -245,11 +245,9 @@ function generatePlot(){
 
 function checkForBlanks(genre, valueArray){
 	var isBlank = false;
-	debugger;
 
 	for(var i = 0; i < valueArray.length; i++)
 		{	console.log(valueArray[i]);
-			debugger;
 			if(valueArray[i].length < 1){
 				alert("You have left a field blank.");
 				isBlank = true;
