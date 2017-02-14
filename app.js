@@ -248,13 +248,13 @@ function checkForBlanks(genre, valueArray){
 
 	for(var i = 0; i < valueArray.length; i++)
 		{	console.log(valueArray[i]);
-			if(valueArray[i].length < 1){
-				alert("You have left a field blank.");
+			if(valueArray[i] === undefined){
+				alert("Make sure you have checked a gender.");
 				isBlank = true;
 				break;
 			}
-			if(valueArray[i] === undefined){
-				alert("Make sure you have checked a gender.");
+			if(valueArray[i].length < 1){
+				alert("You have left a field blank.");
 				isBlank = true;
 				break;
 			}
