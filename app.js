@@ -253,6 +253,11 @@ function checkForBlanks(genre, valueArray){
 				isBlank = true;
 				break;
 			}
+			if(valueArray[i] === undefined){
+				alert("Make sure you have checked a gender.");
+				isBlank = true;
+				break;
+			}
 		}
 
 
