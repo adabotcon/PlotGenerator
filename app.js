@@ -1,5 +1,5 @@
-var Wordnik_BASE_URL = 'https://api.wordnik.com:80/v4/words.json/randomWord';
-var Uinames_BASE_URL = 'https://uinames.com/api/';
+var Wordnik_BASE_URL = 'http://api.wordnik.com:80/v4/words.json/randomWord';
+var Uinames_BASE_URL = 'http://uinames.com/api/';
 
 function getPlot(genre, firstCharacterName, secondCharacterName, firstCharacterGender, secondCharacterGender, place, job1, job2, firstCharacterAdj1, firstCharacterAdj2, secondCharacterAdj1, secondCharacterAdj2, adj1, adj2, verb1, verb2, verb3, species1, species2){
 	var genderNounChar1 = "";
@@ -247,7 +247,7 @@ function checkForBlanks(genre, valueArray){
 	var isBlank = false;
 
 	for(var i = 0; i < valueArray.length; i++)
-		{	console.log(valueArray[i]);
+		{
 			if(valueArray[i] === undefined){
 				alert("Make sure you have checked a gender.");
 				isBlank = true;
