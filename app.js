@@ -183,7 +183,7 @@ function getRandomName(){
 		}
 
 		var closestInput = $(event.currentTarget).closest("form").find("input[type=text]");
-		var gender = $('input[name=gender]:checked').val();
+		var gender = $(event.currentTarget).closest("form").find($('input[name=gender]:checked')).val();
 		getDataFromUinames(gender, region, displayUinamesData, closestInput);
 	})
 }

@@ -1,6 +1,15 @@
+body{
+	color: black;
+	font-family: 'Montserrat', sans-serif;
+	margin:0;
+	box-sizing: border-box;
+
+}
+
 header{
-	border: 1px solid white;
-	background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("spaceship.jpg") no-repeat center top;
+	border: 1px solid black;
+	/*background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("spaceship.jpg") no-repeat center top;*/
+	background: black;
 	background-size: cover;
 	font-family: 'Open Sans', sans-serif;
 	/*font-size: 20px;*/
@@ -8,37 +17,94 @@ header{
 	padding-left: 10px;
 }
 
-body{
+header h1 {
 	color: white;
-	font-family: 'Montserrat', sans-serif;
-	background: url("galaxy-space-background.jpg") no-repeat;
+}
+
+
+main {
+	/*background: url("galaxy-space-background.jpg") no-repeat;*/
 	background-size: cover;
+	float: left;
+	padding: 50px 20%;
+}
+p {
+	line-height: 1.75;
+	color: dodgerblue;
+}
+
+label {
+	color: black;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.bunny {
+	width: 3;
+}
+
+.char-form-1{
+	width: 40%;
+	float: left;
+}
+
+.char-form-2{
+	width: 40%;
+	float: right;
 }
 
 .start-page-main, .pick-genre-div{
 	text-align: center;
 }
 
-.hidden{
-	display: none;
-}
-
 .genre-list > li{
 	list-style: none;	
 	margin-bottom: 20px;
-	border: 1px dotted white;
+	border: 3px solid dodgerblue;
 	padding: 20px;
-	width: 50%;
 }
 
-.romance {
+.regions ul > li, .regions-2 ul > li{
+	border: 1px solid dodgerblue;
+	padding: 5px 8px;
+	cursor: pointer;
+}
+
+.regions ul > li:hover, .regions-2 ul > li:hover{
+	background-color: dodgerblue;
+	color: white;
+}
+
+.regions ul, .regions-2 ul{
+	list-style: none;
+	padding: 0;
+}
+
+/*.romance {
 	background: url("one-single-rose") no-repeat center;
 
+}*/
+
+.region-trigger{
+	text-align: center;
 }
 
-.char-form, .word-form{
-	border: 1px solid lightgrey;
-	padding: 20px;
+.adj-verb-form{
+	margin-top: 30px;
+	float: left;
+	width: 100%;
+}
+
+.form-input{
+	padding: 9px 10px;
+	min-height: 20px;
+	min-width:	93%;
+}
+
+.char-form-1, .char-form-2, .word-form{
+	border: 3px solid dodgerblue;
+	padding: 40px;
+	margin: 20px 0;
 }
 
 .genre{
@@ -49,3 +115,31 @@ body{
 	cursor: pointer;
 }
 
+.button {
+    background-color: white;
+    border: 3px solid dodgerblue;
+    padding: 8px 30px;
+    color: dodgerblue;
+    font-weight: 800;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.button-dark{
+	background-color: dodgerblue;
+	color: white;
+}
+
+.button-small{
+	font-size: 13px;
+}
+
+.hidden{
+	display: none;
+}
+
+.genre-list {
+	text-align: center;
+    margin: 0px auto;
+    width: 50%;
+}

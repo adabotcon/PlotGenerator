@@ -13,101 +13,103 @@
 		<h1>Plot Generator</h1>
 	</header>
 	<main>
-		<form class="js-name-form-char1-basic char-form">
+		<form class="js-name-form-char1-basic char-form-1">
 			<label for="first-name">First Character Name: </label>
 			<input type="text" name="first-name" class="js-first-name" required>
 			<div class="dropdown">
-				<p class="js-region-trigger region-trigger">Choose Your Region</p>
+				<p class="js-region-trigger region-trigger button button-small button-dark">Choose Your Region</p>
 				<div class="hidden regions">
 					<ul>
 					</ul>
 				</div>
 			</div>
+			<p><label for="gender">First Character's Gender</label></p>
 			<input type="radio" name="gender" value="male">Male
 			<input type="radio" name="gender" value="female">Female
-			<button class="js-button-name">Random Name</button>
+			<p><button class="js-button-name button button-small">Generate 1st Character's Random Name</button></p>
 		</form>
-		<form class="js-name-form-char2-basic char-form">
+		<form class="js-name-form-char2-basic char-form-2">
 			<label for="second-name">Second Character Name: </label>
 			<input type="text" name="second-name" class="js-second-name" required>
 			<div class="dropdown">
-				<p class="js-region-trigger-char2 region-trigger">Choose Your Region</p>
+				<p class="js-region-trigger-char2 region-trigger button button-small button-dark">Choose Your Region</p>
 				<div class="hidden regions-2">
 					<ul>
 					</ul>
 				</div>
 			</div>
+			<p><label for="gender">Second Character's Gender</label></p>
 			<input type="radio" name="gender" value="male">Male
 			<input type="radio" name="gender" value="female">Female
-			<button class="js-button-name">Random Name</button>
+			<p><button class="js-button-name button button-small">Generate 2nd Character's Random Name</button></p>
 		</form>
-		<form class="js-adj-verb-form">
+		<form class="js-adj-verb-form adj-verb-form">
 			<div class="word-form">
-				<label for="char1-job">First Character's Job: </label>
-				<input type="text" name="char1-job" class="js-char1-job" required>
+				<label for="place">Where does this story take place? </label>
+				<p><input type="text" name="place" class="js-place form-input" required></p>
 			</div>
 			<div class="word-form">
-				<label for="char2-job">Second Character's Job: </label>
-				<input type="text" name="char2-job" class="js-char2-job" required>
+				<label for="char1-job">First Character's Job </label>
+				<p><input type="text" name="char1-job" class="js-char1-job form-input" required></p>
 			</div>
 			<div class="word-form">
-				<label for="char1-species">First Character's Species: </label>
-				<input type="text" name="char1-species" class="js-char1-species" required>
+				<label for="char2-job">Second Character's Job </label>
+				<p><input type="text" name="char2-job" class="js-char2-job form-input" required></p>
 			</div>
 			<div class="word-form">
-				<label for="char2-species">Second Character's Species: </label>
-				<input type="text" name="char2-species" class="js-char2-species" required>
+				<label for="char1-species">First Character's Species </label>
+				<p><input type="text" name="char1-species" class="js-char1-species form-input" required></p>
 			</div>
 			<div class="word-form">
-				<label for="place">Place: </label>
-				<input type="text" name="place" class="js-place" required>
+				<label for="char2-species">Second Character's Species </label>
+				<p><input type="text" name="char2-species" class="js-char2-species form-input" required></p>
 			</div>
 			<div class="word-form">
-				<label for="first-char-adj1"> Describe First Character: </label>
-				<input type="text" name="first-char-adj1" class="js-first-char-adj1" required>
-				<button class="js-adj-button">Random Word</button>
+				<label for="first-char-adj1"> Describe First Character </label>
+				<p><input type="text" name="first-char-adj1" class="js-first-char-adj1 form-input" required></p>
+				<button class="js-adj-button button button-small">Random Word</button>
 			</div>
 			<div class="word-form">
-				<label for="first-char-adj2"> Describe First Character: </label>
-				<input type="text" name="first-char-adj2" class="js-first-char-adj2" required>
-				<button class="js-adj-button">Random Word</button>
+				<label for="first-char-adj2"> Describe First Character </label>
+				<p><input type="text" name="first-char-adj2" class="js-first-char-adj2 form-input" required></p>
+				<button class="js-adj-button button button-small">Random Word</button>
 			</div>
 			<div class="word-form">
-				<label for="second-char-adj1"> Describe Second Character: </label>
-				<input type="text" name="second-char-adj1" class="js-second-char-adj1" required>
-				<button class="js-adj-button">Random Word</button>
+				<label for="second-char-adj1"> Describe Second Character </label>
+				<p><input type="text" name="second-char-adj1" class="js-second-char-adj1 form-input" required></p>
+				<button class="js-adj-button button button-small">Random Word</button>
 			</div>
 			<div class="word-form">
-				<label for="second-char-adj2"> Describe Second Character: </label>
-				<input type="text" name="second-char-adj2" class="js-second-char-adj2" required>
-				<button class="js-adj-button">Random Word</button>
+				<label for="second-char-adj2"> Describe Second Character </label>
+				<p><input type="text" name="second-char-adj2" class="js-second-char-adj2 form-input" required></p>
+				<button class="js-adj-button button button-small">Random Word</button>
 			</div>
 			<div class="word-form">
-				<label for="adj1"> Adjective: </label>
-				<input type="text" name="adj1" class="js-adj1" required>
-				<button class="js-adj-button">Random Word</button>
+				<label for="adj1"> Adjective </label>
+				<p><input type="text" name="adj1" class="js-adj1 form-input" required></p>
+				<button class="js-adj-button button button-small">Random Word</button>
 			</div>
 			<div class="word-form">
-				<label for="adj2"> Adjective: </label>
-				<input type="text" name="adj2" class="js-adj2" required>
-				<button class="js-adj-button">Random Word</button>
+				<label for="adj2"> Adjective </label>
+				<p><input type="text" name="adj2" class="js-adj2 form-input" required></p>
+				<button class="js-adj-button button button-small">Random Word</button>
 			</div>
 			<div class="word-form">
-				<label for="verb1"> Verb: </label>
-				<input type="text" name="verb1" class="js-verb1" required>
-				<button class="js-verb-button">Random Word</button>
+				<label for="verb1"> Verb </label>
+				<p><input type="text" name="verb1" class="js-verb1 form-input" required></p>
+				<button class="js-verb-button button button-small">Random Word</button>
 			</div>
 			<div class="word-form">
-				<label for="verb2"> Verb: </label>
-				<input type="text" name="verb2" class="js-verb2" required>
-				<button class="js-verb-button">Random Word</button>
+				<label for="verb2"> Verb </label>
+				<p><input type="text" name="verb2" class="js-verb2 form-input" required></p>
+				<button class="js-verb-button button button-small">Random Word</button>
 			</div>
 			<div class="word-form">
-				<label for="verb3"> Verb: </label>
-				<input type="text" name="verb3" class="js-verb3" required>
-				<button class="js-verb-button">Random Word</button>
+				<label for="verb3"> Verb </label>
+				<p><input type="text" name="verb3" class="js-verb3 form-input" required></p>
+				<button class="js-verb-button button button-small">Random Word</button>
 			</div>
-			<button type="submit" class="js-generate-plot">Generate Plot</button>
+			<button type="submit" class="js-generate-plot button button-dark">Generate Plot</button>
 		</form>
 		<div class="js-final-plot hidden">
 			<p class="js-first-paragraph">Currently Processing your Plot</p>
