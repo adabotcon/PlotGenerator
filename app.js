@@ -177,7 +177,7 @@ function buildRegionsList(arrayRegions, regionClass){
 function getRandomName(){
 	$('.js-button-name').on('click', function(event){
 		event.preventDefault();
-		var region = $(this).closest("form").find("p").text().trim();
+		var region = $(this).closest("form").find(".region-trigger").text().trim();
 		if(region === "Choose Your Region"){
 			region = "United States";
 		}

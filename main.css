@@ -15,18 +15,19 @@ header{
 	/*font-size: 20px;*/
 	color: #2573C8;
 	padding-left: 10px;
+		text-align: center;
+
 }
 
-header h1 {
+header h1 a {
 	color: white;
+	font-weight: 400;
+	text-transform: uppercase;
 }
 
 
 main {
-	/*background: url("galaxy-space-background.jpg") no-repeat;*/
-	background-size: cover;
-	float: left;
-	padding: 50px 20%;
+    padding: 50px 20%;
 }
 p {
 	line-height: 1.75;
@@ -40,7 +41,8 @@ label {
 }
 
 .bunny {
-	width: 3;
+	width: 32%;
+	box-sizing: border-box;
 }
 
 .char-form-1{
@@ -51,6 +53,12 @@ label {
 .char-form-2{
 	width: 40%;
 	float: right;
+}
+
+.char-form {
+	box-sizing: border-box;
+	height: ;
+
 }
 
 .start-page-main, .pick-genre-div{
@@ -81,7 +89,7 @@ label {
 }
 
 /*.romance {
-	background: url("one-single-rose") no-repeat center;
+	background: url("one-single-rose") no-repeat center;	
 
 }*/
 
@@ -104,7 +112,7 @@ label {
 .char-form-1, .char-form-2, .word-form{
 	border: 3px solid dodgerblue;
 	padding: 40px;
-	margin: 20px 0;
+	margin: 10px 0;
 }
 
 .genre{
@@ -142,4 +150,5 @@ label {
 	text-align: center;
     margin: 0px auto;
     width: 50%;
+    padding: 0px;
 }
