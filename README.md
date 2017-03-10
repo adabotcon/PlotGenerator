@@ -5,4 +5,4 @@ This app is to help writers through writer's block. It takes in a few words from
 This aps front-end is built with HTML, CSS, JavaScript, jQuery and the API's from Wordnik and uinames.
 
 Live Site:
-http://combative-bulb.surge.sh/
+http://jolly-middle.surge.sh/
